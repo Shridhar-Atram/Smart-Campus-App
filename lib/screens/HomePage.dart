@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
     } else if (currentPage == DrawerSections.send_feedback) {
       container = SendFeedbackPage();
     }
+    var widget2 = widget;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[300],
@@ -72,6 +73,25 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      // ignore: prefer_const_literals_to_create_immutables
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'User login',
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'Admin Login',
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.miscellaneous_services),
+            label: 'Services',
+            backgroundColor: Colors.blue),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.navigation),
+            label: 'Naviagation',
+            backgroundColor: Colors.blue),
+      ]),
     );
   }
 
