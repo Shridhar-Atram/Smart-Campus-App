@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, use_key_in_widget_constructors, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:trial1/main.dart';
 import 'dart:async';
@@ -16,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // ignore: todo
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
     });
