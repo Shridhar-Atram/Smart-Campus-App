@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:trial1/screens/PrivacyPolicyPage.dart';
 import 'package:trial1/screens/SendFeedbackPage.dart';
 import 'package:trial1/screens/setting.dart';
-import 'package:trial1/screens/contacts.dart';
+import 'package:trial1/screens/login.dart';
 
-import 'contacts.dart';
+import 'login.dart';
 import 'dashboard.dart';
 import 'events.dart';
 import 'my_drawer_header.dart';
@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
     var container;
     if (currentPage == DrawerSections.dashboard) {
       container = DashboardPage();
-    } else if (currentPage == DrawerSections.contacts) {
-      container = ContactsPage();
+    } else if (currentPage == DrawerSections.login) {
+      container = LoginScreen();
     } else if (currentPage == DrawerSections.events) {
       container = EventsPage();
     } else if (currentPage == DrawerSections.notes) {
@@ -74,24 +74,24 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.login),
-            label: 'User login',
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.login),
-            label: 'Admin Login',
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.miscellaneous_services),
-            label: 'Services',
-            backgroundColor: Colors.blue),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.navigation),
-            label: 'Naviagation',
-            backgroundColor: Colors.blue),
-      ]),
+      // bottomNavigationBar: BottomNavigationBar(items: [
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.login),
+      //       label: 'User login',
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.login),
+      //       label: 'Admin Login',
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.miscellaneous_services),
+      //       label: 'Services',
+      //       backgroundColor: Colors.blue),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.navigation),
+      //       label: 'Naviagation',
+      //       backgroundColor: Colors.blue),
+      // ]),
     );
   }
 
@@ -105,8 +105,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           menuItem(1, "Dashboard", Icons.dashboard_outlined,
               currentPage == DrawerSections.dashboard ? true : false),
-          menuItem(2, "Contacts", Icons.people_alt_outlined,
-              currentPage == DrawerSections.contacts ? true : false),
+          menuItem(2, "User Login", Icons.vpn_key,
+              currentPage == DrawerSections.login ? true : false),
           menuItem(3, "Events", Icons.event,
               currentPage == DrawerSections.events ? true : false),
           menuItem(4, "Notes", Icons.notes,
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
             if (id == 1) {
               currentPage = DrawerSections.dashboard;
             } else if (id == 2) {
-              currentPage = DrawerSections.contacts;
+              currentPage = DrawerSections.login;
             } else if (id == 3) {
               currentPage = DrawerSections.events;
             } else if (id == 4) {
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
 
 enum DrawerSections {
   dashboard,
-  contacts,
+  login,
   events,
   notes,
   settings,

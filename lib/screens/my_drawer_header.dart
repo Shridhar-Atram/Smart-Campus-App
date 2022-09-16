@@ -27,8 +27,8 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             // ignore: prefer_const_constructors
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage('assets/images/profile.jpg')),
+              image:
+                  DecorationImage(image: AssetImage('assets/images/logo.png')),
             ),
           ),
           Text(
@@ -36,7 +36,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           Text(
-            "shridharatram@gmail.com",
+            "",
             style: TextStyle(color: Colors.grey[200], fontSize: 14),
           )
         ],
