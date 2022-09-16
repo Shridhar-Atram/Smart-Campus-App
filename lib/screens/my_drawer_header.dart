@@ -11,7 +11,7 @@ class MyHeaderDrawer extends StatefulWidget {
 
 class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Container(
       color: Colors.blue[700],
       width: double.infinity,
