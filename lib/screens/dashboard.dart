@@ -11,29 +11,29 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //height and width of our device
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: Icon(Icons.home),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.notifications_active_rounded,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          )
-        ],
-        title: Text(
-          'DASHBOARD',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-          ),
-        ),
-        backgroundColor: Color.fromARGB(255, 1, 205, 215),
-        elevation: 10,
-      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   leading: Icon(Icons.home),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       icon: Icon(
+      //         Icons.notifications_active_rounded,
+      //         color: Colors.white,
+      //       ),
+      //       onPressed: () {},
+      //     )
+      //   ],
+      //   title: Text(
+      //     'DASHBOARD',
+      //     style: TextStyle(
+      //       color: Colors.black,
+      //       fontWeight: FontWeight.bold,
+      //       fontSize: 25,
+      //     ),
+      //   ),
+      //   backgroundColor: Color.fromARGB(255, 1, 205, 215),
+      //   elevation: 10,
+      // ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -95,11 +95,11 @@ class Home extends StatelessWidget {
                                 Icon(
                                   Icons.assignment_rounded,
                                   size: 50,
-                                  color: Colors.red,
+                                  color: Colors.blueAccent,
                                 ),
                                 // Spacer(),
                                 Text(
-                                  'COMPLAINT',
+                                  'E library',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -131,11 +131,11 @@ class Home extends StatelessWidget {
                                 Icon(
                                   Icons.pending_actions,
                                   size: 50,
-                                  color: Colors.red,
+                                  color: Colors.blue,
                                 ),
                                 // Spacer(),
                                 Text(
-                                  'COMPLAINT STATUS',
+                                  'Academics',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -167,11 +167,11 @@ class Home extends StatelessWidget {
                                 Icon(
                                   Icons.moving,
                                   size: 50,
-                                  color: Colors.red,
+                                  color: Colors.blueAccent,
                                 ),
                                 // Spacer(),
                                 Text(
-                                  'UPCOMING',
+                                  'help',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -201,11 +201,11 @@ class Home extends StatelessWidget {
                                 Icon(
                                   Icons.moving,
                                   size: 50,
-                                  color: Colors.red,
+                                  color: Colors.blueAccent,
                                 ),
                                 //Spacer(),
                                 Text(
-                                  'UPCOMING',
+                                  'MIS',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
