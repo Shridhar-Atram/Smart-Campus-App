@@ -1,13 +1,19 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-class E_library extends StatelessWidget {
+class E_libary extends StatelessWidget {
+  const E_libary({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("setting Page"),
+    return MaterialApp(
+      title: 'Elibrary',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('DIgital Library'),
+        ),
+        body: const Center(
+          child: Text('Hello World'),
+        ),
       ),
     );
   }

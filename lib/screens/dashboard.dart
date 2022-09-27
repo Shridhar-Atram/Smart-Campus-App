@@ -76,7 +76,7 @@ class Home extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => E_library())));
+                                  builder: ((context) => academics())));
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -93,7 +93,7 @@ class Home extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.assignment_rounded,
+                                  Icons.computer_outlined,
                                   size: 50,
                                   color: Colors.blueAccent,
                                 ),
@@ -129,7 +129,7 @@ class Home extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.pending_actions,
+                                  Icons.bookmark_border_sharp,
                                   size: 50,
                                   color: Colors.blue,
                                 ),
@@ -165,13 +165,13 @@ class Home extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.moving,
+                                  Icons.book,
                                   size: 50,
                                   color: Colors.blueAccent,
                                 ),
                                 // Spacer(),
                                 Text(
-                                  'help',
+                                  'MIS',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -199,13 +199,13 @@ class Home extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.moving,
+                                  Icons.help,
                                   size: 50,
                                   color: Colors.blueAccent,
                                 ),
                                 //Spacer(),
                                 Text(
-                                  'MIS',
+                                  'HELP',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
