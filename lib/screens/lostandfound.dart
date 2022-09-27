@@ -79,7 +79,7 @@ class LostAndFound extends StatelessWidget {
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 2.0),
                 alignment: Alignment.center,
-                child: FlatButton(
+                child: TextButton(
                   child: Text('Lost?',
                       style: TextStyle(
                           fontSize: 25.0, fontWeight: FontWeight.bold)),
@@ -100,7 +100,7 @@ class LostAndFound extends StatelessWidget {
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 2.0),
                 alignment: Alignment.center,
-                child: FlatButton(
+                child: TextButton(
                   child: Text('Found!',
                       style: TextStyle(
                           fontSize: 25.0, fontWeight: FontWeight.bold)),
