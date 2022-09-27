@@ -11,7 +11,7 @@ import 'login.dart';
 import 'dashboard.dart';
 import 'events.dart';
 import 'my_drawer_header.dart';
-import 'notes.dart';
+import 'lostandfound.dart';
 import 'notifications.dart';
 
 class MyApp extends StatelessWidget {
@@ -41,8 +41,8 @@ class _HomePageState extends State<HomePage> {
       container = LoginScreen();
     } else if (currentPage == DrawerSections.events) {
       container = EventsPage();
-    } else if (currentPage == DrawerSections.notes) {
-      container = NotesPage();
+    } else if (currentPage == DrawerSections.lostandfound) {
+      container = LostAndFound();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
     } else if (currentPage == DrawerSections.notifications) {
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
           menuItem(3, "Events", Icons.event,
               currentPage == DrawerSections.events ? true : false),
           menuItem(4, "Notes", Icons.notes,
-              currentPage == DrawerSections.notes ? true : false),
+              currentPage == DrawerSections.lostandfound ? true : false),
           Divider(),
           menuItem(5, "Settings", Icons.settings_outlined,
               currentPage == DrawerSections.settings ? true : false),
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
             } else if (id == 3) {
               currentPage = DrawerSections.events;
             } else if (id == 4) {
-              currentPage = DrawerSections.notes;
+              currentPage = DrawerSections.lostandfound;
             } else if (id == 5) {
               currentPage = DrawerSections.settings;
             } else if (id == 6) {
@@ -188,7 +188,7 @@ enum DrawerSections {
   dashboard,
   login,
   events,
-  notes,
+  lostandfound,
   settings,
   notifications,
   privacy_policy,
