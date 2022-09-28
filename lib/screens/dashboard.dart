@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trial1/screens/E_library.dart';
 import 'package:trial1/screens/academics.dart';
 import 'package:trial1/screens/help.dart';
+import 'package:trial1/screens/login.dart';
 import 'package:trial1/screens/mis.dart';
 
 class Home extends StatelessWidget {
@@ -40,7 +41,9 @@ class Home extends StatelessWidget {
             height: size.height * .30,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/college.jpg'),
+                  image: AssetImage(
+                    'assets/images/college.jpg',
+                  ),
                   fit: BoxFit.cover),
             ),
           ),
@@ -51,7 +54,7 @@ class Home extends StatelessWidget {
                 children: <Widget>[
                   const SizedBox(
                     width: double.infinity,
-                    height: 60,
+                    height: 80,
                   ),
                   Container(
                     // margin: const EdgeInsets.only(left: 20.0),
@@ -206,6 +209,82 @@ class Home extends StatelessWidget {
                                 //Spacer(),
                                 Text(
                                   'HELP',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15),
+                                )
+                              ],
+                            )),
+                      ),
+                      //logout
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => LoginScreen())));
+                        },
+                        child: Container(
+                            alignment: Alignment.topCenter,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(13),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color.fromARGB(111, 10, 217, 232),
+                                    offset: Offset(2.0, 2.0),
+                                    blurRadius: 2.0,
+                                  ),
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.browse_gallery,
+                                  size: 50,
+                                  color: Colors.blueAccent,
+                                ),
+                                //Spacer(),
+                                Text(
+                                  'Gallery',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15),
+                                )
+                              ],
+                            )),
+                      ),
+                      //Logout
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => LoginScreen())));
+                        },
+                        child: Container(
+                            alignment: Alignment.topCenter,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(13),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color.fromARGB(111, 10, 217, 232),
+                                    offset: Offset(2.0, 2.0),
+                                    blurRadius: 2.0,
+                                  ),
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.logout_outlined,
+                                  size: 50,
+                                  color: Colors.blueAccent,
+                                ),
+                                //Spacer(),
+                                Text(
+                                  'Logout',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
