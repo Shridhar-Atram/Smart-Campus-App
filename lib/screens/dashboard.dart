@@ -151,7 +151,7 @@ class Home extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => help())));
+                                  builder: ((context) => mis())));
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -185,7 +185,7 @@ class Home extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) => mis())));
+                              MaterialPageRoute(builder: ((context) => help())));
                         },
                         child: Container(
                             decoration: BoxDecoration(
