@@ -169,7 +169,7 @@ class _LostState extends State<Lost> {
                                 return;
                               }
                               if (key.currentState!.validate()) {
-                                clearText();
+                               
                                 String itemTitle = _controllerTitle.text;
                                 String itemDescription =
                                     _controllerdescription.text;
@@ -181,6 +181,7 @@ class _LostState extends State<Lost> {
                                   'image': imageURL,
                                 };
                                 _reference.add(dataToSend);
+                                 clearText();
                               }
                             },
                           ))
