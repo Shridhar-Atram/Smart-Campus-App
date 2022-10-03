@@ -4,7 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LostAndFound extends StatelessWidget {
-  LostAndFound( {Key? key}) : super(key: key) {
+  LostAndFound({Key? key}) : super(key: key) {
     _stream = _reference.snapshots();
   }
 
@@ -16,55 +16,53 @@ class LostAndFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:   Color.fromARGB(255, 236, 223, 236),
+      backgroundColor: Color.fromARGB(255, 236, 223, 236),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 73, 9, 108),
         title: Text('Lost & Found'),
-        
       ),
-      body: 
-        Container(
-          decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 241, 237, 241),
-                  Color.fromARGB(255, 113, 40, 122)
-                ]),
-              ),
-          child: StreamBuilder<QuerySnapshot>(
-        stream: _stream,
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasError) {
-            return Center(child: Text('Some error occurred ${snapshot.error}'));
-          }
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 241, 237, 241),
+            Color.fromARGB(255, 113, 40, 122)
+          ]),
+        ),
+        child: StreamBuilder<QuerySnapshot>(
+          stream: _stream,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                  child: Text('Some error occurred ${snapshot.error}'));
+            }
 
-          if (snapshot.hasData) {
-            QuerySnapshot querySnapshot = snapshot.data;
-            List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+            if (snapshot.hasData) {
+              QuerySnapshot querySnapshot = snapshot.data;
+              List<QueryDocumentSnapshot> documents = querySnapshot.docs;
 
-            List<Map> items = documents
-                .map((e) => {
-                      'id': e.id,
-                      'title': e['title'],
-                      'description': e['description'],
-                       'contact':e['contact'],
-                      //  'postedBy': e['postedBy'],
-                      // 'title':e['title'],
-                    })
-                .toList();
+              List<Map> items = documents
+                  .map((e) => {
+                        'id': e.id,
+                        'title': e['title'],
+                        'description': e['description'],
+                        'contact': e['contact'],
+                        //  'postedBy': e['postedBy'],
+                        // 'title':e['title'],
+                      })
+                  .toList();
 
-            return Container(
-             
-              child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: items.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, i) {
-                    Map thisItem = items[i];
-                    return FinalItem(thisItem['id']);
-                  }),
-            );
-          }
-          /*  return ListView.builder(
+              return Container(
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: items.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, i) {
+                      Map thisItem = items[i];
+                      return FinalItem(thisItem['id']);
+                    }),
+              );
+            }
+            /*  return ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: loadedItems.length,
               shrinkWrap: true,
@@ -74,10 +72,10 @@ class LostAndFound extends StatelessWidget {
                   loadedItems[i].description,
                   loadedItems[i].postedBy,
                   loadedItems[i].imageUrl));*/
-          return Center(child: CircularProgressIndicator());
-        },
-      ),
+            return Center(child: CircularProgressIndicator());
+          },
         ),
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           // gradient:LinearGradient(colors: [Color.fromARGB(255, 241, 237, 241),Color.fromARGB(255, 113, 40, 122)]),
@@ -101,7 +99,7 @@ class LostAndFound extends StatelessWidget {
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 2.0),
                 alignment: Alignment.center,
-                child: FlatButton(
+                child: TextButton(
                   child: Text('Lost?',
                       style: TextStyle(
                           fontSize: 25.0, fontWeight: FontWeight.bold)),
@@ -125,7 +123,7 @@ class LostAndFound extends StatelessWidget {
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 2.0),
                 alignment: Alignment.center,
-                child: FlatButton(
+                child: TextButton(
                   child: Text('Found!',
                       style: TextStyle(
                           fontSize: 25.0, fontWeight: FontWeight.bold)),
@@ -192,15 +190,15 @@ class FinalItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Container(
-                              width: 130.0,
-                              height: 130.0,
-                             
-                              color: Color.fromARGB(255, 143, 136, 136),
-                              child:FittedBox(
-                                child: data.containsKey('image')?Image.network('${data['image']}') : Container(),
-                                fit:BoxFit.fill,
-                              )
-                            ),
+                                width: 130.0,
+                                height: 130.0,
+                                color: Color.fromARGB(255, 143, 136, 136),
+                                child: FittedBox(
+                                  child: data.containsKey('image')
+                                      ? Image.network('${data['image']}')
+                                      : Container(),
+                                  fit: BoxFit.fill,
+                                )),
                             //
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,7 +230,7 @@ class FinalItem extends StatelessWidget {
                                         fontWeight: FontWeight.bold))),
                           ],
                         ),
-                         SizedBox(height: 5.0),
+                        SizedBox(height: 5.0),
                         Container(
                             //alignment: Alignment.bottomLeft,
                             //   margin: const EdgeInsets.all(12.0),
@@ -243,7 +241,7 @@ class FinalItem extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             // ignore: prefer_interpolation_to_compose_strings
-                            
+
                             child: Row(
                               children: [
                                 Icon(Icons.mail),
