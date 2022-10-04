@@ -23,7 +23,8 @@ class _LostState extends State<Lost> {
 
   String imageURL = '';
   final User? user = FirebaseAuth.instance.currentUser;
-
+  final String st='Lost';
+  final String found='';
   void clearText() {
     _controllerTitle.clear();
     _controllerdescription.clear();
@@ -178,7 +179,10 @@ class _LostState extends State<Lost> {
                                   'title': itemTitle,
                                   'description': itemDescription,
                                   'contact': '${user?.email}',
+                                  'status':st,
+                                  'foundBy':found,
                                   'image': imageURL,
+                                 
                                 };
                                 _reference.add(dataToSend);
                                  clearText();

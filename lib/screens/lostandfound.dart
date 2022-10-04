@@ -3,6 +3,8 @@ import './lost.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import './editItem.dart';
+
 class LostAndFound extends StatelessWidget {
   LostAndFound({Key? key}) : super(key: key) {
     _stream = _reference.snapshots();
@@ -46,6 +48,8 @@ class LostAndFound extends StatelessWidget {
                         'title': e['title'],
                         'description': e['description'],
                         'contact': e['contact'],
+                        'status': e['status'],
+                        'foundBy': e['foundBy'],
                         //  'postedBy': e['postedBy'],
                         // 'title':e['title'],
                       })
@@ -93,40 +97,19 @@ class LostAndFound extends StatelessWidget {
                     Radius.circular(10),
                   ),
                   //   gradient:LinearGradient(colors: [Color.fromARGB(255, 170, 47, 2),Color.fromARGB(255, 240, 138, 14)])
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 73, 9, 108),
                   border: Border.all(
-                      width: 3, color: Color.fromARGB(255, 249, 3, 3)),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 2.0),
-                alignment: Alignment.center,
-                child: TextButton(
-                  child: Text('Lost?',
-                      style: TextStyle(
-                          fontSize: 25.0, fontWeight: FontWeight.bold)),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Lost()));
-                  },
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+                    width: 0,
                   ),
-                  //gradient:LinearGradient(colors: [Color.fromARGB(255, 206, 232, 192),Color.fromARGB(255, 87, 178, 87)])
-                  color: Color.fromARGB(255, 3, 154, 18),
-                  border: Border.all(
-                      width: 3, color: Color.fromARGB(255, 68, 165, 3)),
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 2.0),
                 alignment: Alignment.center,
                 child: TextButton(
-                  child: Text('Found!',
+                  child: Text('Something Lost?',
                       style: TextStyle(
-                          fontSize: 25.0, fontWeight: FontWeight.bold)),
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 246, 244, 243))),
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Lost()));
@@ -153,6 +136,77 @@ class FinalItem extends StatelessWidget {
   late Map data;
 
   //final FirebaseAuth auth = FirebaseAuth.instance;
+  Container updateStatus() {
+    if ('${data['status']}' == 'Lost') {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.all(
+              Radius.circular(5.0) //                 <--- border radius here
+              ),
+        ),
+        child: Text('${data['status']}'),
+      );
+    } else {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: Colors.green,
+          borderRadius: BorderRadius.all(
+              Radius.circular(5.0) //                 <--- border radius here
+              ),
+        ),
+        child: Text('${data['status']}'),
+      );
+    }
+  }
+
+  Container? foundItem() {
+    if ('${data['status']}' == 'Found') {
+      return Container(
+          //alignment: Alignment.bottomLeft,
+          //   margin: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
+          decoration: BoxDecoration(
+            // color: Colors.blue[400],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          // ignore: prefer_interpolation_to_compose_strings
+
+          child: Row(
+            children: [
+              Icon(Icons.check, color: Colors.green),
+              SizedBox(width: 5.0),
+              Text("Found By-",
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(153, 23, 1, 1),
+
+                    //decoration: TextDecoration.underline,
+                  )),
+              SizedBox(width: 8.0),
+
+              // if('${data['status']}'=='Found')
+              // {
+              new Container(
+                child: Text('${data['foundBy']}',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(153, 3, 83, 101),
+                      decoration: TextDecoration.underline,
+                    )),
+              )
+            ],
+          ));
+    } else {
+      return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -223,14 +277,32 @@ class FinalItem extends StatelessWidget {
                             Container(
                                 // alignment: Alignment.bottomRight,
                                 padding:
-                                    EdgeInsets.fromLTRB(7.0, 7.0, 7.0, 95.0),
-                                child: Text('Found',
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold))),
+                                    EdgeInsets.fromLTRB(2.0, 0.0, 2.0, 20.0),
+                                child: Column(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        data['id'] = itemId;
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    EditItem(data)));
+                                      },
+                                      icon: Icon(
+                                        Icons.edit_outlined,
+                                      ),
+                                    ),
+                                    SizedBox(height: 7.0),
+                                    Container(
+                                      decoration: BoxDecoration(),
+                                      child: updateStatus(),
+                                    )
+                                  ],
+                                )),
                           ],
                         ),
-                        SizedBox(height: 5.0),
+                        SizedBox(height: 6.0),
                         Container(
                             //alignment: Alignment.bottomLeft,
                             //   margin: const EdgeInsets.all(12.0),
@@ -244,11 +316,12 @@ class FinalItem extends StatelessWidget {
 
                             child: Row(
                               children: [
-                                Icon(Icons.mail),
+                                Icon(Icons.report,
+                                    color: Color.fromARGB(255, 194, 22, 9)),
                                 SizedBox(width: 5.0),
-                                Text("Contact-",
+                                Text("Reported By-",
                                     style: TextStyle(
-                                      fontSize: 16.0,
+                                      fontSize: 12.0,
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromARGB(153, 23, 1, 1),
 
@@ -257,13 +330,17 @@ class FinalItem extends StatelessWidget {
                                 SizedBox(width: 8.0),
                                 Text('${data['contact']}',
                                     style: TextStyle(
-                                      fontSize: 16.0,
+                                      fontSize: 12.0,
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromARGB(153, 3, 83, 101),
                                       decoration: TextDecoration.underline,
                                     )),
                               ],
                             )),
+                        SizedBox(
+                          height: 4.0,
+                        ),
+                        Container(child: foundItem()),
                       ],
                     )),
               ),
