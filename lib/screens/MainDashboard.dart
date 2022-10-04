@@ -4,6 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 class MySlider extends StatefulWidget {
   @override
   _MySliderState createState() => _MySliderState();
+  Info Create() => Info();
 }
 
 class _MySliderState extends State<MySlider> {
@@ -33,6 +34,25 @@ class _MySliderState extends State<MySlider> {
             )
           ],
         )),
+      ),
+    );
+  }
+}
+
+class Info extends StatelessWidget {
+  const Info({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        text:
+            'Government College of Engineering, Karad is an autonomous technical institute in the Indian state of Maharashtra. It was established in 1960 and is affiliated to the Shivaji University with an autonomous status under the UGC. The autonomy was granted by the UGC ',
+        style: DefaultTextStyle.of(context).style,
+        children: const <TextSpan>[
+          TextSpan(text: 'bold', style: TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: ' world!'),
+        ],
       ),
     );
   }
