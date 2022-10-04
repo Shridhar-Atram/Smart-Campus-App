@@ -2,6 +2,7 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:trial1/screens/MainDashboard.dart';
 import 'package:trial1/screens/PrivacyPolicyPage.dart';
 import 'package:trial1/screens/SendFeedbackPage.dart';
 import 'package:trial1/screens/setting.dart';
@@ -12,6 +13,7 @@ import 'dashboard.dart';
 import 'events.dart';
 import 'my_drawer_header.dart';
 import 'notes.dart';
+import 'MainDashboard.dart';
 import 'notifications.dart';
 
 class MyApp extends StatelessWidget {
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     } else if (currentPage == DrawerSections.events) {
       container = EventsPage();
     } else if (currentPage == DrawerSections.notes) {
-      container = NotesPage();
+      container = MySlider();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
     } else if (currentPage == DrawerSections.notifications) {
