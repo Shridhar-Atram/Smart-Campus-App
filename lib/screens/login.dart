@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:trial1/screens/HomePage.dart';
 import 'package:trial1/screens/RegistrationScreen.dart';
+import 'package:trial1/screens/dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -167,8 +168,8 @@ class _LoginScreenState extends State<LoginScreen> {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => Home())), // routing to homepage
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {

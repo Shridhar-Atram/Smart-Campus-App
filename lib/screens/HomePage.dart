@@ -7,13 +7,14 @@ import 'package:trial1/screens/PrivacyPolicyPage.dart';
 import 'package:trial1/screens/SendFeedbackPage.dart';
 import 'package:trial1/screens/setting.dart';
 import 'package:trial1/screens/login.dart';
+import 'MainDashboard.dart';
 
 import 'login.dart';
 import 'dashboard.dart';
 import 'events.dart';
 import 'my_drawer_header.dart';
 import 'notes.dart';
-import 'MainDashboard.dart';
+
 import 'notifications.dart';
 
 class MyApp extends StatelessWidget {
@@ -38,13 +39,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var container;
     if (currentPage == DrawerSections.dashboard) {
-      container = Home();
+      container = MySlider();
     } else if (currentPage == DrawerSections.login) {
       container = LoginScreen();
     } else if (currentPage == DrawerSections.events) {
       container = EventsPage();
     } else if (currentPage == DrawerSections.notes) {
-      container = MySlider();
+      container = NotesPage();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
     } else if (currentPage == DrawerSections.notifications) {
@@ -196,3 +197,4 @@ enum DrawerSections {
   privacy_policy,
   send_feedback,
 }
+
