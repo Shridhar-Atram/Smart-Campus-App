@@ -3,38 +3,25 @@ import 'package:trial1/screens/E_library.dart';
 import 'package:trial1/screens/academics.dart';
 import 'package:trial1/screens/help.dart';
 import 'package:trial1/screens/login.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:trial1/screens/mis.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
+  _launchURLApp() async {
+    const url =
+        'https://mis.gcekarad.ac.in/GCEKMIS/iitmsv4eGq0RuNHb0G5WbhLmTKLmTO7YBcJ4RHuXxCNPvuIw=?enc=VkmxevzBcWWxrhMpzAa5iGbQRW+9E0bvJQWQr/ELfBc=';
+    if (await canLaunch(url)) {
+      await launch(url, forceSafariVC: true, forceWebView: true);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //height and width of our device
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   leading: Icon(Icons.home),
-      //   actions: <Widget>[
-      //     IconButton(
-      //       icon: Icon(
-      //         Icons.notifications_active_rounded,
-      //         color: Colors.white,
-      //       ),
-      //       onPressed: () {},
-      //     )
-      //   ],
-      //   title: Text(
-      //     'DASHBOARD',
-      //     style: TextStyle(
-      //       color: Colors.black,
-      //       fontWeight: FontWeight.bold,
-      //       fontSize: 25,
-      //     ),
-      //   ),
-      //   backgroundColor: Color.fromARGB(255, 1, 205, 215),
-      //   elevation: 10,
-      // ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -75,12 +62,7 @@ class Home extends StatelessWidget {
 
                     children: <Widget>[
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => academics())));
-                        },
+                        onTap: () => launch('http://14.139.112.11:81/'),
                         child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
@@ -147,12 +129,8 @@ class Home extends StatelessWidget {
                             )),
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => mis())));
-                        },
+                        onTap: () => launch(
+                            'https://mis.gcekarad.ac.in/GCEKMIS/iitmsv4eGq0RuNHb0G5WbhLmTKLmTO7YBcJ4RHuXxCNPvuIw=?enc=VkmxevzBcWWxrhMpzAa5iGbQRW+9E0bvJQWQr/ELfBc='),
                         child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
@@ -184,8 +162,10 @@ class Home extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) => help())));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => help())));
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -209,44 +189,6 @@ class Home extends StatelessWidget {
                                 //Spacer(),
                                 Text(
                                   'HELP',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15),
-                                )
-                              ],
-                            )),
-                      ),
-                      //logout
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => LoginScreen())));
-                        },
-                        child: Container(
-                            alignment: Alignment.topCenter,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(13),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color.fromARGB(111, 10, 217, 232),
-                                    offset: Offset(2.0, 2.0),
-                                    blurRadius: 2.0,
-                                  ),
-                                ]),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.browse_gallery,
-                                  size: 50,
-                                  color: Colors.blueAccent,
-                                ),
-                                //Spacer(),
-                                Text(
-                                  'Gallery',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
