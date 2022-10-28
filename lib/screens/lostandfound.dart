@@ -50,8 +50,6 @@ class LostAndFound extends StatelessWidget {
                         'contact': e['contact'],
                         'status': e['status'],
                         'foundBy': e['foundBy'],
-                        //  'postedBy': e['postedBy'],
-                        // 'title':e['title'],
                       })
                   .toList();
 
@@ -267,10 +265,16 @@ class FinalItem extends StatelessWidget {
                                       )),
                                 ),
                                 SizedBox(height: 5.0),
-                                Text('${data['description']}',
-                                    style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 109, 68, 97))),
+                                Container(
+                                  width: 120.0,
+                                  child: Text(
+                                      '${data['description']}', //overflow:TextOverflow.visible,
+                                      maxLines: 20,
+                                      //softWrap: false,
+                                      style: TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 109, 68, 97))),
+                                )
                               ],
                             ),
                             //    SizedBox(height:20.0),

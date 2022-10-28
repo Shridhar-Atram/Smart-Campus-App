@@ -26,8 +26,8 @@ class _LostState extends State<Lost> {
   final String st='Lost';
   final String found='';
   void clearText() {
-    _controllerTitle.clear();
-    _controllerdescription.clear();
+   // _controllerTitle.clear();
+    //_controllerdescription.clear();
   }
 
   @override
